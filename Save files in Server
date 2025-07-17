@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/YOUR-USERNAME/YOUR-REPO.git'
+            }
+        }
+
+        stage('Save and Read File on Server') {
+            steps {
+                sh 'chmod +x save_file.sh'
+                sh './save_file.sh'
+            }
+        }
+    }
+}
