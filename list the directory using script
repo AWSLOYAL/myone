@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('List Directory') {
+            steps {
+                dir('myfolder') {
+                    sh '''
+                        echo "Current Directory:"
+                        pwd
+                        echo "Listing Contents:"
+                        ls -l
+                    '''
+                }
+            }
+        }
+    }
+}
