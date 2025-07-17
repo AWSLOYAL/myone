@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/YOUR-USERNAME/YOUR-REPO.git'
+            }
+        }
+
+        stage('Move File') {
+            steps {
+                sh 'chmod +x move_file.sh'
+                sh './move_file.sh'
+            }
+        }
+    }
+}
