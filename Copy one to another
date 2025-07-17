@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git 'https://github.com/YOUR-USERNAME/YOUR-REPO.git'
+            }
+        }
+
+        stage('Copy File') {
+            steps {
+                sh 'chmod +x copy_file.sh'
+                sh './copy_file.sh'
+            }
+        }
+    }
+}
